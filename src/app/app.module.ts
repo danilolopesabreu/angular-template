@@ -1,18 +1,30 @@
 import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutes, AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './modules/dashboard/dashboard.component';
+import { NavbarModule } from './shared/components/navbar/navbar.module';
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import { SidebarModule } from './shared/components/sidebar/sidebar.module';
+import { PrincipalComponent } from './principal/principal.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
+    PrincipalComponent,
     PageNotFoundComponent
   ],
   imports: [
+    BrowserAnimationsModule,
+    FormsModule,
+    RouterModule.forRoot(AppRoutes,{
+      useHash: true
+    }),
+    SidebarModule,
+    NavbarModule,
     BrowserModule,
     AppRoutingModule
   ],

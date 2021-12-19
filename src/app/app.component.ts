@@ -12,7 +12,7 @@ export class AppComponent {
     private router: Router,
     private activatedRoute:ActivatedRoute){
     
-      this.goToDashboard();    
+      //this.goToDashboard();    
 
   }
 
