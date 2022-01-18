@@ -11,7 +11,6 @@ $color-black:           #5e5e5e;
 $color-caixa-azul:      #006FB1ff;
 $color-caixa-laranja:   #F58524ff;
 
-
 /*      light colors         */
 
 $light-blue:                 rgba($color-blue, .2);
@@ -129,7 +128,6 @@ $success-states-color:       darken($color-green, 5%) !default;
 $warning-color:              $color-caixa-laranja !default;
 $warning-bg:                 $color-caixa-laranja !default;
 $warning-states-color:       darken($color-caixa-laranja, 7%) !default;
-
 
 $danger-color:               $color-red !default;
 $danger-bg:                  $color-red !default;
