@@ -16,6 +16,7 @@ export interface ChildrenItems {
     title: string;
     ab: string;
     type?: string;
+    icon:string;
 }
 
 //Menu Items
@@ -30,13 +31,13 @@ export const ROUTES: RouteInfo[] = [{
         type: 'sub',
         icontype: 'pe-7s-plugin',
         children: [
-            {path: 'buttons', title: 'Botões', ab:'B'},
-            {path: 'grid', title: 'Grids', ab:'GS'},
-            {path: 'panels', title: 'Accordion/Tabs', ab:'P'},
-            {path: 'sweet-alert', title: 'Alertas', ab:'SA'},
-            {path: 'notifications', title: 'Notificações', ab:'N'},
-            {path: 'icons', title: 'Icones', ab:'I'},
-            {path: 'typography', title: 'Tipografia', ab:'T'}
+            {path: 'buttons', title: 'Botões', ab:'', icon: 'fa fa-mouse-pointer'},
+            {path: 'grid', title: 'Grids', ab:'GS', icon: 'fa fa-table'},
+            {path: 'panels', title: 'Accordion/Tabs', ab:'', icon: 'fa fa-list-ul'},
+            {path: 'sweet-alert', title: 'Alertas', ab:'', icon: 'fa fa-warning'},
+            {path: 'notifications', title: 'Notificações', ab:'', icon: 'fa fa-bell'},
+            {path: 'icons', title: 'Icones', ab:'I', icon: 'fa fa-fonticons'},
+            {path: 'typography', title: 'Tipografia', ab:'', icon: 'fa fa-file-text'}
         ]
     },{
         path: '/forms',
@@ -44,10 +45,10 @@ export const ROUTES: RouteInfo[] = [{
         type: 'sub',
         icontype: 'pe-7s-note2',
         children: [
-            {path: 'regular', title: 'Básico', ab:'RF'},
-            {path: 'extended', title: 'Complementos', ab:'EF'},
-            {path: 'validation', title: 'Validação', ab:'VF'},
-            {path: 'wizard', title: 'Wizard', ab:'W'}
+            {path: 'regular', title: 'Básico', ab:'', icon: 'fa fa-wpforms'},
+            {path: 'extended', title: 'Complementos', ab:'fa fa-', icon: 'fa fa-wpforms'},
+            {path: 'validation', title: 'Validação', ab:'fa fa-', icon: 'fa fa-wpforms'},
+            {path: 'wizard', title: 'Wizard', ab:'', icon: 'fa fa-magic'}
         ]
     },{
         path: '/tables',
@@ -55,9 +56,9 @@ export const ROUTES: RouteInfo[] = [{
         type: 'sub',
         icontype: 'pe-7s-news-paper',
         children: [
-            {path: 'regular', title: 'Regular Tables', ab:'RT'},
-            {path: 'extended', title: 'Extended Tables', ab:'ET'},
-            {path: 'datatables.net', title: 'Datatables.net', ab:'DT'}
+            {path: 'regular', title: 'Regular Tables', ab:'', icon: 'fa fa-table'},
+            {path: 'extended', title: 'Extended Tables', ab:'', icon: 'fa fa-table'},
+            {path: 'datatables.net', title: 'Datatables.net', ab:'', icon: 'fa fa-table'}
         ]
     }
 ];

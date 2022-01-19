@@ -27,14 +27,8 @@
                     <ul class="nav">
                         <li>
                             <a href="#">
-                                <span class="sidebar-mini">&nbsp;</span>
-                                <span class="sidebar-normal">EDD_APROVADOR</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <span class="sidebar-mini">&nbsp;</span>
-                                <span class="sidebar-normal">EDD_MASTER</span>
+                                <span class="sidebar-mini"><i class="fa fa-check"></i></span>
+                                <span class="sidebar-normal">Perfil</span>
                             </a>
                         </li>
                     </ul>
@@ -60,7 +54,7 @@
                     <ul class="nav">
                         <li routerLinkActive="active" *ngFor="let childitem of menuitem.children">
                             <a [routerLink]="[menuitem.path, childitem.path]">
-                                <span class="sidebar-mini">{{childitem.ab}}</span>
+                                <span class="sidebar-mini"> <i class="{{childitem.icon}}"></i> </span>
                                 <span class="sidebar-normal">{{childitem.title}}</span>
                             </a>
                         </li>
