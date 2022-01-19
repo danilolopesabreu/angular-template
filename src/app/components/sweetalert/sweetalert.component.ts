@@ -4,7 +4,6 @@ import swal from 'sweetalert2';
 declare var $:any;
 
 @Component({
-    moduleId: module.id,
     selector: 'sweetalert-cmp',
     templateUrl: 'sweetalert.component.html'
 })
@@ -14,7 +13,7 @@ export class SweetAlertComponent{
     showSwal(type){
       if (type == 'basic') {
           swal.fire({
-              title: "Here's a message!",
+              title: "Titulo/Mensagem",
               buttonsStyling: false,
               customClass:{
                 confirmButton: "btn btn-fill btn-success"
@@ -23,8 +22,8 @@ export class SweetAlertComponent{
 
       }else if (type == 'title-and-text') {
           swal.fire({
-              title: "Here's a message!",
-              text: "It's pretty, isn't it?",
+              title: "Titulo/Mensagem",
+              text: "Mensagem...",
               buttonsStyling: false,
               customClass:{
                 confirmButton: "btn btn-fill btn-info"
@@ -33,8 +32,8 @@ export class SweetAlertComponent{
 
       }else if (type == 'success-message') {
           swal.fire({
-              title: "Good job!",
-              text: "You clicked the button!",
+              title: "Sucesso!",
+              text: "Mensagem...",
               buttonsStyling: false,
               customClass:{
                 confirmButton: "btn btn-fill btn-success",
@@ -45,23 +44,24 @@ export class SweetAlertComponent{
       }
       else if(type == 'warning-message-and-confirmation'){
         swal.fire({
-          title: 'Are you sure?',
-          text: "You will not be able to recover this imaginary file!",
+          title: 'Tem Certeza?',
+          text: "Mensagem de alerta na operação",
           icon: 'warning',
           showCancelButton: true,
           customClass:{
             confirmButton: 'btn btn-fill btn-success btn-mr-5',
             cancelButton: 'btn btn-fill btn-danger',
           },
-          confirmButtonText: 'Yes, delete it!',
+          confirmButtonText: 'Sim',
+          cancelButtonText: 'Cancelar',
            buttonsStyling: false,
 
         }).then((result) => {
           if (result.value) {
             swal.fire(
               {
-                title: 'Deleted!',
-                text: 'Your imaginary file has been deleted.',
+                title: 'Sucesso',
+                text: 'A operação foi concluida.',
                 icon: 'success',
                 customClass:{
                   confirmButton: "btn btn-fill btn-success",
@@ -74,12 +74,12 @@ export class SweetAlertComponent{
 
     	}else if(type == 'warning-message-and-cancel'){
           swal.fire({
-              title: 'Are you sure?',
-              text: 'You will not be able to recover this imaginary file!',
+              title: 'Tem Certeza?',
+              text: 'Mensagem de alerta na operação',
               icon: 'warning',
               showCancelButton: true,
-              confirmButtonText: 'Yes, delete it!',
-              cancelButtonText: 'No, keep it',
+              confirmButtonText: 'Sim',
+              cancelButtonText: 'Cancelar',
               customClass:{
                 confirmButton: "btn btn-fill btn-success btn-mr-5",
                 cancelButton: "btn btn-fill btn-danger",
@@ -88,8 +88,8 @@ export class SweetAlertComponent{
           }).then((result) => {
             if (result.value) {
               swal.fire({
-                  title: 'Deleted!',
-                  text: 'Your imaginary file has been deleted.',
+                  title: 'Sucesso',
+                  text: 'Alguma mensagem de negócio',
                   icon: 'success',
                   customClass:{
                     confirmButton: "btn btn-fill btn-success",
@@ -98,8 +98,8 @@ export class SweetAlertComponent{
               })
             } else {
               swal.fire({
-                  title: 'Cancelled',
-                  text: 'Your imaginary file is safe :)',
+                  title: 'Você Cancelou',
+                  text: 'Mensagem de negócio',
                   icon: 'error',
                   customClass:{
                     confirmButton: "btn btn-fill btn-info",
@@ -110,26 +110,26 @@ export class SweetAlertComponent{
           })
     	}else if(type == 'custom-html'){
         swal.fire({
-            title: 'HTML example',
+            title: 'Com HTML no corpo',
             buttonsStyling: false,
             customClass:{
               confirmButton: "btn btn-fill btn-success",
             },
-            html: 'You can use <b>bold text</b>, ' +
-                '<a href="https://github.com">links</a> ' +
-                'and other HTML tags'
+            html: 'Texto com bold <b>negrito</b>, ' +
+                '<a href="http://google.com.br">link</a>' 
+                
         })
 
     	}else if(type == 'auto-close'){
         swal.fire({
-            title: "Auto close alert!",
-            text: "I will close in 2 seconds.",
+            title: "Fechamento automático",
+            text: "fechar em 2 segundos.",
             timer: 2000,
             showConfirmButton: false
         })
     	} else if(type == 'input-field'){
         swal.fire({
-            title: 'Input something',
+            title: 'Digitar algo',
             html: '<div class="form-group">' +
                 '<input id="input-field" type="text" class="form-control" />' +
                 '</div>',
@@ -143,7 +143,7 @@ export class SweetAlertComponent{
             if (result.value) {
             swal.fire({
                 icon: 'success',
-                html: 'You entered: <strong>' +
+                html: 'Voce digitou: <strong>' +
                     $('#input-field').val() +
                     '</strong>',
                 customClass:{

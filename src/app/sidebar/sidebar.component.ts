@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, AfterViewChecked, AfterContentInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 declare var $:any;
 //Metadata
@@ -26,21 +26,21 @@ export const ROUTES: RouteInfo[] = [{
         icontype: 'pe-7s-graph'
     },{
         path: '/components',
-        title: 'Components',
+        title: 'Componentes',
         type: 'sub',
         icontype: 'pe-7s-plugin',
         children: [
-            {path: 'buttons', title: 'Buttons', ab:'B'},
-            {path: 'grid', title: 'Grid System', ab:'GS'},
-            {path: 'panels', title: 'Panels', ab:'P'},
-            {path: 'sweet-alert', title: 'Sweet Alert', ab:'SA'},
-            {path: 'notifications', title: 'Notifications', ab:'N'},
-            {path: 'icons', title: 'Icons', ab:'I'},
-            {path: 'typography', title: 'Typography', ab:'T'}
+            {path: 'buttons', title: 'Botões', ab:'B'},
+            {path: 'grid', title: 'Grids', ab:'GS'},
+            {path: 'panels', title: 'Paineis', ab:'P'},
+            {path: 'sweet-alert', title: 'Alertas', ab:'SA'},
+            {path: 'notifications', title: 'Notificações', ab:'N'},
+            {path: 'icons', title: 'Icones', ab:'I'},
+            {path: 'typography', title: 'Tipografia', ab:'T'}
         ]
     },{
         path: '/forms',
-        title: 'Forms',
+        title: 'Formulários',
         type: 'sub',
         icontype: 'pe-7s-note2',
         children: [
@@ -51,45 +51,13 @@ export const ROUTES: RouteInfo[] = [{
         ]
     },{
         path: '/tables',
-        title: 'Tables',
+        title: 'Tabelas',
         type: 'sub',
         icontype: 'pe-7s-news-paper',
         children: [
             {path: 'regular', title: 'Regular Tables', ab:'RT'},
             {path: 'extended', title: 'Extended Tables', ab:'ET'},
             {path: 'datatables.net', title: 'Datatables.net', ab:'DT'}
-        ]
-    },{
-        path: '/maps',
-        title: 'Maps',
-        type: 'sub',
-        icontype: 'pe-7s-map-marker',
-        children: [
-            {path: 'google', title: 'Google Maps', ab:'GM'},
-            {path: 'fullscreen', title: 'Full Screen Map', ab:'FSM'},
-            {path: 'vector', title: 'Vector Map', ab:'VM'}
-        ]
-    },{
-        path: '/charts',
-        title: 'Charts',
-        type: 'link',
-        icontype: 'pe-7s-graph1'
-
-    },{
-        path: '/calendar',
-        title: 'Calendar',
-        type: 'link',
-        icontype: 'pe-7s-date'
-    },{
-        path: '/pages',
-        title: 'Pages',
-        type: 'sub',
-        icontype: 'pe-7s-gift',
-        children: [
-            {path: 'user', title: 'User Page', ab:'UP'},
-            {path: 'login', title: 'Login Page', ab:'LP'},
-            {path: 'register', title: 'Register Page', ab:'RP'},
-            {path: 'lock', title: 'Lock Screen Page', ab:'LSP'}
         ]
     }
 ];

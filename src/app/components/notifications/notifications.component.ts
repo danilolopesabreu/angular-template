@@ -17,7 +17,7 @@ export class NotificationsComponent{
 
     	$.notify({
         	icon: "pe-7s-gift",
-        	message: "<b>Light Bootstrap Dashboard PRO</b> - forget about boring dashboards."
+        	message: "<b> Dashboard PRO</b> - forget about boring dashboards."
 
         },{
             type: type[color],
