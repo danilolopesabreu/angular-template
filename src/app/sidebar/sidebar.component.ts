@@ -32,7 +32,7 @@ export const ROUTES: RouteInfo[] = [{
         children: [
             {path: 'buttons', title: 'Botões', ab:'B'},
             {path: 'grid', title: 'Grids', ab:'GS'},
-            {path: 'panels', title: 'Paineis', ab:'P'},
+            {path: 'panels', title: 'Accordion/Tabs', ab:'P'},
             {path: 'sweet-alert', title: 'Alertas', ab:'SA'},
             {path: 'notifications', title: 'Notificações', ab:'N'},
             {path: 'icons', title: 'Icones', ab:'I'},
