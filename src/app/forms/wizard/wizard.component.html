@@ -6,40 +6,40 @@
                 <form [formGroup]="type" id="wizardForm" method="" action="">
 
                 <div class="header text-center">
-                    <h3 class="title">Awesome Wizard</h3>
-                    <p class="category">Split a complicated flow in multiple steps</p>
+                    <h3 class="title">Título Wizard</h3>
+                    <p class="category">Alguma funcionalidade complicada dividida em etapas</p>
                 </div>
 
                 <div class="content">
                     <ul class="nav">
-                        <li><a href="#tab1" data-toggle="tab">First Tab</a></li>
-                        <li><a href="#tab2" data-toggle="tab">Second Tab</a></li>
-                        <li><a href="#tab3" data-toggle="tab">Third Tab</a></li>
+                        <li><a href="#tab1" data-toggle="tab">Primeira Tab</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Segunda Tab</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Terceira Tab</a></li>
                     </ul>
 
                     <div class="tab-content">
                         <div class="tab-pane" id="tab1">
-                            <h5 class="text-center">Please tell us more about yourself.</h5>
+                            <h5 class="text-center">funcionalidade complicada</h5>
                             <div class="row">
                                 <div class="col-md-5 col-md-offset-1">
                                     <div class="form-group" [ngClass]="displayFieldCss(type, 'firstName')">
-                                        <label class="control-label">First Name</label>
+                                        <label class="control-label">Nome<span class="star">*</span></label>
                                         <input class="form-control"
                                                type="text"
                                                name="firstname"
-                                               placeholder="ex: Mike"
+                                               placeholder="ex: Joao"
                                                formControlName="firstName"
                                         />
                                     </div>
                                 </div>
                                 <div class="col-md-5">
                                     <div class="form-group" [ngClass]="displayFieldCss(type, 'lastName')">
-                                        <label class="control-label">Last Name</label>
+                                        <label class="control-label">Sobrenome<span class="star">*</span></label>
                                         <input class="form-control"
                                                type="text"
                                                name="lastname"
                                                required="true"
-                                               placeholder="ex: Andrew"
+                                               placeholder="ex: Silva"
                                                formControlName="lastName"
                                         />
                                     </div>
@@ -105,7 +105,6 @@
                                             <option value="de">Deutsch</option>
                                             <option value="en">English</option>
                                             <option value="es">Español</option>
-                                            <option value="el">Eλληνικά</option>
                                             <option value="fr">Français</option>
                                             <option value="it">Italiano</option>
                                             <option value="hu">Magyar</option>
@@ -118,12 +117,6 @@
                                             <option value="tr">Türkçe</option>
                                             <option value="is">Íslenska</option>
                                             <option value="cs">Čeština</option>
-                                            <option value="ru">Русский</option>
-                                            <option value="th">ภาษาไทย</option>
-                                            <option value="zh">中文 (简体)</option>
-                                            <option value="zh-TW">中文 (繁體)</option>
-                                            <option value="ja">日本語</option>
-                                            <option value="ko">한국어</option>
                                         </select>
 
                                     </div>
@@ -165,17 +158,17 @@
                         </div>
 
                         <div class="tab-pane" id="tab3">
-                            <h2 class="text-center text-space">Yuhuuu! <br><small> Click on "<b>Finish</b>" to join our community</small></h2>
+                            <h2 class="text-center text-space">Terminou! <br><small> Click on "<b>Finish</b>" to join our community</small></h2>
                         </div>
 
                     </div>
                 </div>
 
                 <div class="footer">
-                    <button type="button" class="btn btn-default btn-fill btn-wd btn-back pull-left">Back</button>
+                    <button type="button" class="btn btn-default btn-fill btn-wd btn-back pull-left">Anterior</button>
 
-                    <button type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">Next</button>
-                    <button type="button" class="btn btn-info btn-fill btn-wd btn-finish pull-right" click="onFinishWizard()">Finish</button>
+                    <button type="button" class="btn btn-info btn-fill btn-wd btn-next pull-right">Próximo</button>
+                    <button type="button" class="btn btn-info btn-fill btn-wd btn-finish pull-right" click="onFinishWizard()">Finalizar</button>
 
                     <div class="clearfix"></div>
                 </div>

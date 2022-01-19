@@ -9,7 +9,8 @@ import { Validator, AbstractControl, NG_VALIDATORS } from '@angular/forms';
 })
 
 export class EqualValidator implements Validator {
-    constructor( @Attribute('validateEqual') public validateEqual: string,
+    constructor( 
+        @Attribute('validateEqual') public validateEqual: string,
         @Attribute('reverse') public reverse: string) {
     }
 

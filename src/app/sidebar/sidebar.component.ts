@@ -44,9 +44,9 @@ export const ROUTES: RouteInfo[] = [{
         type: 'sub',
         icontype: 'pe-7s-note2',
         children: [
-            {path: 'regular', title: 'Regular Forms', ab:'RF'},
-            {path: 'extended', title: 'Extended Forms', ab:'EF'},
-            {path: 'validation', title: 'Validation Forms', ab:'VF'},
+            {path: 'regular', title: 'Básico', ab:'RF'},
+            {path: 'extended', title: 'Complementos', ab:'EF'},
+            {path: 'validation', title: 'Validação', ab:'VF'},
             {path: 'wizard', title: 'Wizard', ab:'W'}
         ]
     },{

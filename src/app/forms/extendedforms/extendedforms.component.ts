@@ -3,14 +3,13 @@ import { Component, OnInit } from '@angular/core';
 declare var $:any;
 
 @Component({
-    moduleId: module.id,
     selector: 'extendedforms-cmp',
     templateUrl: 'extendedforms.component.html'
 })
 
 export class ExtendedFormsComponent implements OnInit{
-    regularItems = ['Pizza', 'Pasta', 'Parmesan'];
-    filledItems = ['Pizza', 'Pasta', 'Parmesan'];
+    regularItems = ['tag1', 'tag2', 'tag3'];
+    filledItems = ['tag1', 'tag2', 'tag3'];
     simpleSlider = 40;
     doubleSlider = [20, 60];
     state_default: boolean = true;
@@ -59,8 +58,8 @@ export class ExtendedFormsComponent implements OnInit{
          });
 
          $('.timepicker').datetimepicker({
-//          format: 'H:mm',    // use this format if you want the 24hours timepicker
-            format: 'h:mm A',    //use this format if you want the 12hours timpiecker with AM/PM toggle
+            format: 'H:mm',    // use this format if you want the 24hours timepicker
+            //format: 'h:mm A',    //use this format if you want the 12hours timpiecker with AM/PM toggle
             icons: {
                 time: "fa fa-clock-o",
                 date: "fa fa-calendar",

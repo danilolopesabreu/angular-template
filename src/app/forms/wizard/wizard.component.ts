@@ -7,7 +7,6 @@ declare var $:any;
 
 
 @Component({
-    moduleId: module.id,
     selector: 'wizard-cmp',
     templateUrl: 'wizard.component.html'
 })
@@ -29,11 +28,13 @@ export class WizardComponent implements OnInit{
   }
   onFinishWizard(){
       //here you can do something, sent the form to server via ajax and show a success message with swal
-      swal.fire("Good job!", "You clicked the finish button!", "success");
+      swal.fire("Sucesso!", "Final do wizard!", "success");
   }
   ngOnInit(){
     this.type = this.formBuilder.group({
-      // To add a validator, we must first convert the string value into an array. The first item in the array is the default value if any, then the next item in the array is the validator. Here we are adding a required validator meaning that the firstName attribute must have a value in it.
+      //To add a validator, we must first convert the string value into an array. 
+      //The first item in the array is the default value if any, then the next item in the array is the validator.
+      //Here we are adding a required validator meaning that the firstName attribute must have a value in it.
       firstName: [null, Validators.required],
       lastName: [null, Validators.required],
       email: [null, [Validators.required, Validators.pattern("^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$")]],
@@ -114,7 +115,7 @@ export class WizardComponent implements OnInit{
           onLast: function(tab,navigation,index){
 
               //here you can do something, sent the form to server via ajax and show a success message with swal
-              swal.fire("Good job!", "You clicked the finish button!", "success");
+              swal.fire("Sucesso!", "Final do wizard!", "success");
           }
 
       });
