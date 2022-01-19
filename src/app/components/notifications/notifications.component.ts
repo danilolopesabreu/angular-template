@@ -3,7 +3,6 @@ import { Component } from '@angular/core';
 declare var $:any;
 
 @Component({
-    moduleId: module.id,
     selector: 'notifications-cmp',
     templateUrl: 'notifications.component.html'
 })
@@ -16,8 +15,8 @@ export class NotificationsComponent{
         var color = Math.floor((Math.random() * 4) + 1);
 
     	$.notify({
-        	icon: "pe-7s-gift",
-        	message: "<b> Dashboard PRO</b> - forget about boring dashboards."
+        	icon: "pe-7s-bell",
+        	message: "<b> Atenção </b> - Alguma Mensagem de Negócio / Alerta / Erro / Sucesso / Falha."
 
         },{
             type: type[color],
