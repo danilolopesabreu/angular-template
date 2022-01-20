@@ -1,104 +1,166 @@
-import { Component, OnInit } from '@angular/core';
+// IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
 
-declare var $:any;
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 declare interface DataTable {
-    headerRow: string[];
-    footerRow: string[];
-    dataRows: string[][];
+  headerRow: string[];
+  footerRow: string[];
+  dataRows: string[][];
 }
 
+declare const $: any;
+
 @Component({
-    moduleId: module.id,
-    selector: 'data-table-cmp',
+    selector: 'app-data-table-cmp',
     templateUrl: 'datatable.component.html'
 })
 
-export class DataTableComponent implements OnInit{
+export class DataTableComponent implements OnInit, AfterViewInit {
     public dataTable: DataTable;
-    ngOnInit(){
+
+    ngOnInit() {
         this.dataTable = {
-            headerRow: [ 'Name', 'Position', 'Office', 'Age', 'Date', 'Actions' ],
-            footerRow: [ 'Name', 'Position', 'Office', 'Age', 'Start Date', 'Actions' ],
+            headerRow: [ 'Data do Registro', 'CIF', 'ID', 'Responsável', 'Reais (R$)', 'Ação', 'Justificativa', '' ],
+            footerRow: [ 'Data do Registro', 'CIF', 'ID', 'Responsável', 'Reais (R$)', 'Ação', 'Justificativa', '' ],
+
             dataRows: [
-                ['Airi Satou', 'Andrew Mike', 'Develop', '2013', '99,225',''],
-                ['Angelica Ramos', 'John Doe', 'Design', '2012', '89,241', 'btn-round'],
-                ['Ashton Cox', 'Alex Mike', 'Design', '2010', '92,144', 'btn-simple'],
-                ['Bradley Greer','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Brenden Wagner', 'Paul Dickens', 'Communication', '2015', '69,201', ''],
-                ['Brielle Williamson','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Caesar Vance','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Cedric Kelly','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Charde Marshall','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Colleen Hurst','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Dai Rios', 'Andrew Mike', 'Develop', '2013', '99,225',''],
-                ['Doris Wilder', 'John Doe', 'Design', '2012', '89,241', 'btn-round'],
-                ['Fiona Green', 'Alex Mike', 'Design', '2010', '92,144', 'btn-simple'],
-                ['Garrett Winters','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Gavin Cortez', 'Paul Dickens', 'Communication', '2015', '69,201', ''],
-                ['Gavin Joyce','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Gloria Little','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Haley Kennedy','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Herrod Chandler','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Hope Fuentes','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Howard Hatfield', 'Andrew Mike', 'Develop', '2013', '99,225',''],
-                ['Jena Gaines', 'John Doe', 'Design', '2012', '89,241', 'btn-round'],
-                ['Jenette Caldwell', 'Alex Mike', 'Design', '2010', '92,144', 'btn-simple'],
-                ['Jennifer Chang','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Martena Mccray', 'Paul Dickens', 'Communication', '2015', '69,201', ''],
-                ['Michael Silva','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Michelle House','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Paul Byrd','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Prescott Bartlett','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Quinn Flynn','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Rhona Davidson', 'Andrew Mike', 'Develop', '2013', '99,225',''],
-                ['Shou Itou', 'John Doe', 'Design', '2012', '89,241', 'btn-round'],
-                ['Sonya Frost', 'Alex Mike', 'Design', '2010', '92,144', 'btn-simple'],
-                ['Suki Burks','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Tatyana Fitzpatrick', 'Paul Dickens', 'Communication', '2015', '69,201', ''],
-                ['Tiger Nixon','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Timothy Mooney','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Unity Butler','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Vivian Harrell','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round'],
-                ['Yuri Berry','Mike Monday', 'Marketing', '2013', '49,990', 'btn-round']
+                ['15/12/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['03/12/2021 11:21', '05.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['15/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['16/07/2021 17:31', '06.01.07.001.0133.0000', '00004520211215l', 'c128354', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['14/12/2021 11:21', '07.01.07.001.0133.0000', '00004520211215l', 'c891146', 'R$0,00', 'Lançamento Genérico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',''],
+                ['17/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/09/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/08/2021 11:21', '08.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['18/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['22/12/2021 17:31', '09.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['13/12/2021 11:21', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['25/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/03/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/12/2021 11:21', '05.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['15/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['16/12/2021 17:31', '06.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['14/12/2021 11:21', '07.01.07.001.0133.0000', '00004520211215l', 'c891146', 'R$0,00', 'Lançamento Genérico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',''],
+                ['17/01/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/12/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/03/2021 11:21', '08.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['18/03/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['22/12/2021 17:31', '09.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['13/10/2021 11:21', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['25/11/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/12/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['03/12/2021 11:21', '05.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['15/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['16/07/2021 17:31', '06.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['14/12/2021 11:21', '07.01.07.001.0133.0000', '00004520211215l', 'c891146', 'R$0,00', 'Lançamento Genérico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',''],
+                ['17/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/09/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/08/2021 11:21', '08.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['18/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['22/12/2021 17:31', '09.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['13/12/2021 11:21', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['25/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/03/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c128354', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/12/2021 11:21', '05.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['15/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['16/12/2021 17:31', '06.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['14/12/2021 11:21', '07.01.07.001.0133.0000', '00004520211215l', 'c891146', 'R$0,00', 'Lançamento Genérico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',''],
+                ['17/01/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/12/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/03/2021 11:21', '08.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['18/03/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['22/12/2021 17:31', '09.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['13/10/2021 11:21', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['25/11/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/12/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['03/12/2021 11:21', '05.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['15/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['16/07/2021 17:31', '06.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['14/12/2021 11:21', '07.01.07.001.0133.0000', '00004520211215l', 'c891146', 'R$0,00', 'Lançamento Genérico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',''],
+                ['17/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/09/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/08/2021 11:21', '08.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['18/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['22/12/2021 17:31', '09.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['13/12/2021 11:21', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['25/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/03/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/12/2021 11:21', '05.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['15/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['16/12/2021 17:31', '06.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['14/12/2021 11:21', '07.01.07.001.0133.0000', '00004520211215l', 'c891146', 'R$0,00', 'Lançamento Genérico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',''],
+                ['17/01/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/12/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/03/2021 11:21', '08.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['18/03/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['22/12/2021 17:31', '09.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['13/10/2021 11:21', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['25/11/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/12/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['03/12/2021 11:21', '05.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf',''],
+                ['15/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['16/07/2021 17:31', '06.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['14/12/2021 11:21', '07.01.07.001.0133.0000', '00004520211215l', 'c891146', 'R$0,00', 'Lançamento Genérico', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.',''],
+                ['17/12/2021 09:30', 'Múltiplos CIFs', '00004520211215l', 'c891145', 'R$777,70', 'Múltiplos Tipos de Lançamentos', 'asdfdgf',''],
+                ['15/09/2021 17:31', '04.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Manutenção de FE', 'qwerty',''],
+                ['15/08/2021 11:21', '08.01.07.001.0133.0000', '00004520211215l', 'c891148', 'R$0,00', 'Lançamento Genérico', 'asdfdgf','']
+                
+              
             ]
          };
+
     }
 
-    ngAfterViewInit(){
+    ngAfterViewInit() {
+      $('#datatables').DataTable({
+        "pagingType": "full_numbers",
+        "lengthMenu": [
+          [10, 25, 50, -1],
+          [10, 25, 50, "Tudo"]
+        ],
+        responsive: true,
+        language: {
+          url: './assets/js/data_table_pt_br.json'
+        }
 
-        $('#datatables').DataTable({
-            "pagingType": "full_numbers",
-            "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
-            responsive: true,
-            language: {
-            search: "_INPUT_",
-            searchPlaceholder: "Search records",
-            }
+      });
 
-        });
+      const table = $('#datatables').DataTable();
 
+      // Edit record
+      table.on('click', '.btn-success', function(e) {
+        let $tr = $(this).closest('tr');
+        if ($($tr).hasClass('child')) {
+          $tr = $tr.prev('.parent');
+        }
 
-        var table = $('#datatables').DataTable();
+        var data = table.row($tr).data();
+        alert('aprovar: ' + data[0] + ' ' + data[1] + ' ' + data[2] );
+        e.preventDefault();
+      });
 
-        // Edit record
-        table.on( 'click', '.edit', function () {
-            var $tr = $(this).closest('tr');
+      // Delete a record
+      table.on('click', '.btn-danger', function(e) {
+        let $tr = $(this).closest('tr');
 
-            var data = table.row($tr).data();
-            alert( 'You press on Row: ' + data[0] + ' ' + data[1] + ' ' + data[2] + '\'s row.' );
-        } );
+        if ($($tr).hasClass('child')) {
+          $tr = $tr.prev('.parent');
+        }
 
-        // Delete a record
-        table.on( 'click', '.remove', function (e) {
-            var $tr = $(this).closest('tr');
-            table.row($tr).remove().draw();
-            e.preventDefault();
-        } );
+        var data = table.row($tr).data();
+        alert('remover: ' + data[0] + ' ' + data[1] + ' ' + data[2] );
 
-        //Like record
-        table.on( 'click', '.like', function () {
-            alert('You clicked on Like button');
-        });
+        table.row($tr).remove().draw();
+        e.preventDefault();
+      });
+
+      //Like record
+      table.on('click', '.btn-primary', function(e) {
+        alert('clicou p detalhar');
+        //e.preventDefault();
+      });
+
+      $('.card .material-datatables label').addClass('form-group');
+
     }
 }

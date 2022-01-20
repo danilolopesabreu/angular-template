@@ -4,11 +4,11 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Table with Links</h4>
-                        <p class="category">Here is a subtitle for this table</p>
+                        <h4 class="title">Tabela com Links</h4>
+                        <p class="category">Subtitulo da tabela</p>
                     </div>
                     <div class="content table-responsive table-full-width">
-                        <table class="table">
+                        <table class="table table-no-bordered table-hover" cellspacing="0">
                                 <thead>
                                     <tr>
                                       <th class="text-center">{{ tableData1.headerRow[0] }}</th>
@@ -23,18 +23,20 @@
                                       <td class="text-center">{{row[0]}}</td>
                                       <td>{{row[1]}}</td>
                                       <td>{{row[2]}}</td>
-                                      <td class="text-right">&euro; {{row[4]}}</td>
-                                      <td class="td-actions text-right">
-                                          <a rel="tooltip" title="View Profile" class="btn btn-info btn-simple btn-xs">
-                                              <i class="fa fa-user"></i>
-                                          </a>
-                                          <a rel="tooltip" title="Edit Profile" class="btn btn-success btn-simple btn-xs">
-                                              <i class="fa fa-edit"></i>
-                                          </a>
-                                          <a rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">
-                                              <i class="fa fa-times"></i>
-                                          </a>
-                                      </td>
+                                      <td class="text-right"> R$ {{row[4]}}</td>
+                                      <td class="text-right">
+                                        <a class="btn btn-info btn-simple btn-icon">
+                                            <i class="fa fa-search"></i>
+                                        </a>
+                                        <a class="btn btn-warning btn-simple btn-icon">
+                                            <i class="fa fa-edit"></i>
+                                        </a>
+                                        <a class="btn btn-danger btn-simple btn-icon">
+                                            <i class="fa fa-times"></i>
+                                        </a>
+                                    </td>
+
+                                      
                                   </tr>
                               </tbody>
                         </table>
@@ -44,11 +46,11 @@
             <div class="col-md-6">
                 <div class="card">
                     <div class="header">
-                        <h4 class="title">Table with Switches</h4>
-                        <p class="category">With some subtitle</p>
+                        <h4 class="title">Tabela com Switches</h4>
+                        <p class="category">Outro subtitulo</p>
                     </div>
                     <div class="content table-full-width">
-                        <table class="table table-striped">
+                        <table class="table table-no-bordered table-hover">
                                 <thead>
                                     <tr>
                                       <th class="text-center">{{ tableData2.headerRow[0] }}</th>
@@ -63,9 +65,9 @@
                                         <td class="text-center">{{row.id}}</td>
                                         <td>{{row.name}}</td>
                                         <td>{{row.job_position}}</td>
-                                        <td class="text-right">&euro; {{row.salary}}</td>
+                                        <td class="text-right"> R$ {{row.salary}}</td>
                                         <td class="text-right">
-                                                    <bSwitch
+                                                    <bSwitch 
                                                     [switch-on-color]="'primary'"
                                                       [switch-off-text]="' '"
                                                       [switch-on-text]="' '"
@@ -78,59 +80,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="header text-center">
-                        <h4 class="title">Table Big Boy</h4>
-                        <p class="category">A table for content management</p>
-                        <br />
-                    </div>
-                    <div class="content table-responsive table-full-width">
-                        <table class="table table-bigboy">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">{{ tableData3.headerRow[0] }}</th>
-                                        <th>{{ tableData3.headerRow[1] }}</th>
-                                        <th class="th-description">{{ tableData3.headerRow[2] }}</th>
-                                        <th class="text-right">{{ tableData3.headerRow[3] }}</th>
-                                        <th class="text-right">{{ tableData3.headerRow[4] }}</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                              <tbody>
-                                  <tr *ngFor="let row of tableData3.dataRows">
-                                      <td>
-                                          <div class="img-container">
-                                              <img src="../../assets/img/{{row[0]}}" alt="...">
-                                          </div>
-                                      </td>
-                                      <td class="td-name">
-                                          {{row[1]}}
-                                      </td>
-                                      <td>{{row[2]}}</td>
-                                      <td class="td-number">
-                                          {{row[3]}}
-                                      </td>
-                                      <td class="td-number">
-                                          {{row[4]}}
-                                      </td>
-                                      <td class="td-actions">
-                                          <button type="button" rel="tooltip" data-placement="left" title="View Post" class="btn btn-info btn-simple btn-icon">
-                                              <i class="fa fa-image"></i>
-                                          </button>
-                                          <button type="button" rel="tooltip" data-placement="left" title="Edit Post" class="btn btn-success btn-simple btn-icon">
-                                              <i class="fa fa-edit"></i>
-                                          </button>
-                                          <button type="button" rel="tooltip" data-placement="left" title="Remove Post" class="btn btn-danger btn-simple btn-icon ">
-                                              <i class="fa fa-times"></i>
-                                          </button>
-                                      </td>
-                                  </tr>
-                              </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
+            
         </div>
     </div>
 </div>

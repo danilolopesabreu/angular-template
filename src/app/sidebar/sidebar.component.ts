@@ -56,8 +56,8 @@ export const ROUTES: RouteInfo[] = [{
         type: 'sub',
         icontype: 'pe-7s-news-paper',
         children: [
-            {path: 'regular', title: 'Regular Tables', ab:'', icon: 'fa fa-table'},
-            {path: 'extended', title: 'Extended Tables', ab:'', icon: 'fa fa-table'},
+            {path: 'regular', title: 'Básica', ab:'', icon: 'fa fa-table'},
+            {path: 'extended', title: 'Com Ações', ab:'', icon: 'fa fa-table'},
             {path: 'datatables.net', title: 'Datatables.net', ab:'', icon: 'fa fa-table'}
         ]
     }

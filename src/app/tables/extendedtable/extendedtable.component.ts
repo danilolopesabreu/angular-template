@@ -33,22 +33,22 @@ export class ExtendedTableComponent implements OnInit{
     ngOnInit(){
 
         this.tableData1 = {
-            headerRow: [ '#', 'Name', 'Job Position', 'Since', 'Salary', 'Actions'],
+            headerRow: [ '#', 'Cervejaria', 'Sede', 'Since', 'Faturamento', 'Ações'],
             dataRows: [
-                ['1', 'Andrew Mike', 'Develop', '2013', '99,225',''],
-                ['2', 'John Doe', 'Design', '2012', '89,241', ''],
-                ['3', 'Alex Mike', 'Design', '2010', '92,144', ''],
-                ['4','Mike Monday', 'Marketing', '2013', '49,990', ''],
-                ['5', 'Paul Dickens', 'Communication', '2015', '69,201', '']
+                ['1', 'Gran Bier', 'Gramado', '2013', '299,225',''],
+                ['2', 'Baden Baden', 'Campos Jordão', '2012', '189,241', ''],
+                ['3', 'Razen', 'Gramado', '2010', '162,144', ''],
+                ['4','Go Brew', 'Anápolis', '2013', '49,990', ''],
+                ['5', 'Backer', 'Belo Horizonte', '2015', '9,201', '']
             ]
         };
         this.tableData2 = {
-            headerRow: [ '#', 'Name', 'Job Position', 'Salary', 'Active' ],
+            headerRow: [ '#', 'Nome', 'Cargo', 'Salario', 'Ativo' ],
             dataRows: [
-                {id: 1, name: 'Andrew Mike', job_position: 'Develop', salary: '99,225', active: false},
-                {id: 2, name: 'John Doe', job_position: 'Design', salary: '89,241', active: false},
-                {id: 3, name: 'Alex Mike', job_position: 'Design', salary: '92,144', active: true},
-                {id: 4, name: 'Mike Monday', job_position: 'Marketing', salary: '49,990', active: true}
+                {id: 1, name: 'João', job_position: 'Desenvolvedor', salary: '19,225', active: false},
+                {id: 2, name: 'Maria', job_position: 'Scrum Master', salary: '15,241', active: false},
+                {id: 3, name: 'Antonio', job_position: 'Design', salary: '15,144', active: true},
+                {id: 4, name: 'Joe', job_position: 'Marketing', salary: '9,990', active: true}
             ]
         };
         this.tableData3 = {

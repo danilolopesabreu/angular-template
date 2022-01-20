@@ -19,7 +19,7 @@
 
                     <div class="tab-content">
                         <div class="tab-pane" id="tab1">
-                            <h5 class="text-center">funcionalidade complicada</h5>
+                            <h5 class="text-center"></h5>
                             <div class="row">
                                 <div class="col-md-5 col-md-offset-1">
                                     <div class="form-group" [ngClass]="displayFieldCss(type, 'firstName')">
@@ -63,11 +63,11 @@
                         </div>
 
                         <div class="tab-pane" id="tab2">
-                            <h5 class="text-center">Please give us more details about your platform.</h5>
+                            <h5 class="text-center"></h5>
                             <div class="row">
                                 <div class="col-md-10 col-md-offset-1">
                                     <div class="form-group">
-                                        <label class="control-label">Your Website<span class="star">*</span></label>
+                                        <label class="control-label">URL<span class="star">*</span></label>
                                         <input class="form-control"
                                                type="text"
                                                name="website"
@@ -81,7 +81,7 @@
                             <div class="row">
                                 <div class="col-md-5 col-md-offset-1">
                                     <div class="form-group">
-                                        <label class="control-label">Framework Type</label>
+                                        <label class="control-label">Outra URL</label>
                                         <input class="form-control"
                                                type="text"
                                                name="framework"
@@ -92,13 +92,16 @@
 
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label class="control-label">Language<span class="star">*</span></label>
+                                        <label class="control-label">Idioma<span class="star">*</span></label>
 
-                                        <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js, that's why we use the "default select" inside this wizard. We will try to contact the guys who are responsibble for the "bootstrap select picker" to find a solution. Thank you for your patience.
+                                        <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js,
+                                              that's why we use the "default select" inside this wizard. 
+                                              We will try to contact the guys who are responsibble for the "bootstrap select picker"
+                                               to find a solution. Thank you for your patience.
                                          -->
 
                                         <select name="cities" class="form-control">
-                                            <option selected="" disabled="">- language -</option>
+                                            <option selected="" disabled="">- Selecione -</option>
                                             <option value="ms">Bahasa Melayu</option>
                                             <option value="ca">Català</option>
                                             <option value="da">Dansk</option>
@@ -126,17 +129,18 @@
                             <div class="row">
                                 <div class="col-md-5 col-md-offset-1">
                                     <div class="form-group">
-                                        <label class="control-label">Bootstrap Version</label>
+                                        <label class="control-label">Pais</label>
 
-                                        <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js, that's why we use the "default select" inside this wizard. We will try to contact the guys who are responsibble for the "bootstrap select picker" to find a solution. Thank you for your patience.
+                                        <!--     IMPORTANT! - the "bootstrap select picker" is not compatible with jquery.validation.js, 
+                                            that's why we use the "default select" inside this wizard. We will try to contact the guys who 
+                                            are responsibble for the "bootstrap select picker" to find a solution. Thank you for your patience.
                                          -->
 
                                         <select name="cities" class="form-control">
-                                            <option selected="" disabled="">- version -</option>
-                                            <option value="1.1">Bootstrap 1.1</option>
-                                            <option value="2.0">Bootstrap 2.0</option>
-                                            <option value="3.0">Bootstrap 3.0</option>
-                                            <option value="4.0">Bootstrap 4.0(alpha)</option>
+                                            <option selected="" disabled="">- Selecione -</option>
+                                            <option value="1">Brasil</option>
+                                            <option value="2">Portugal</option>
+                                            <option value="3">Japao</option>
                                         </select>
 
                                     </div>
@@ -144,11 +148,11 @@
 
                                 <div class="col-md-5">
                                     <div class="form-group">
-                                        <label class="control-label">Price</label>
+                                        <label class="control-label">Preço</label>
                                         <input class="form-control"
                                                type="text"
                                                name="price"
-                                               placeholder="ex: 19.00"
+                                               placeholder="ex: 19,00"
                                         />
                                     </div>
                                 </div>
@@ -158,7 +162,7 @@
                         </div>
 
                         <div class="tab-pane" id="tab3">
-                            <h2 class="text-center text-space">Terminou! <br><small> Click on "<b>Finish</b>" to join our community</small></h2>
+                            <h2 class="text-center text-space">Ultima etapa <br><small> Clique em "<b>Finalizar</b>" para....</small></h2>
                         </div>
 
                     </div>
