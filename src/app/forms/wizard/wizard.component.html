@@ -1,7 +1,7 @@
 <div class="main-content">
 <div class="container-fluid">
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-12">
             <div class="card card-wizard" id="wizardCard">
                 <form [formGroup]="type" id="wizardForm" method="" action="">
 
@@ -29,6 +29,7 @@
                                                name="firstname"
                                                placeholder="ex: Joao"
                                                formControlName="firstName"
+                                               data-msg="Campo obrigatório"
                                         />
                                     </div>
                                 </div>
@@ -41,7 +42,9 @@
                                                required="true"
                                                placeholder="ex: Silva"
                                                formControlName="lastName"
+                                               data-msg="Campo obrigatório"
                                         />
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -55,6 +58,7 @@
                                                email="true"
                                                placeholder="ex: hello@mail.com"
                                                formControlName="email"
+                                               data-msg="Campo obrigatório"
                                         />
                                     </div>
                                 </div>
@@ -73,6 +77,7 @@
                                                name="website"
                                                url="true"
                                                placeholder="ex: http://www.zzzzzz.com"
+                                               data-msg="Campo obrigatório"
                                         />
                                     </div>
                                 </div>

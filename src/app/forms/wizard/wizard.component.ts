@@ -10,7 +10,6 @@ declare var $:any;
     selector: 'wizard-cmp',
     templateUrl: 'wizard.component.html'
 })
-
 export class WizardComponent implements OnInit{
   type : FormGroup;
 
@@ -26,10 +25,26 @@ export class WizardComponent implements OnInit{
       'has-success': this.isFieldValid(form, field)
     };
   }
+
+  finalizar(){
+
+    swal.fire({
+      title: "Titulo/Mensagem",
+      text: "Mensagem...",
+      buttonsStyling: false,
+      customClass:{
+        confirmButton: "btn btn-fill btn-info"
+      }
+    })
+
+  }
+
   onFinishWizard(){
       //here you can do something, sent the form to server via ajax and show a success message with swal
-      swal.fire("Sucesso!", "Final do wizard!", "success");
+      //swal.fire("Sucesso!", "Final do wizard!", "success");
+      this.finalizar();    
   }
+
   ngOnInit(){
     this.type = this.formBuilder.group({
       //To add a validator, we must first convert the string value into an array. 
@@ -42,6 +57,7 @@ export class WizardComponent implements OnInit{
       // you can also use the nav-pills-[blue | azure | green | orange | red] for a different color of wizard
       // Code for the Validator
           var $validator = $('.card-wizard form').validate({
+            lang: 'pt',
             rules: {
               firstname: {
                 required: true,
@@ -115,7 +131,17 @@ export class WizardComponent implements OnInit{
           onLast: function(tab,navigation,index){
 
               //here you can do something, sent the form to server via ajax and show a success message with swal
-              swal.fire("Sucesso!", "Final do wizard!", "success");
+              //this.finalizar();
+              swal.fire({
+                title: "Sucesso!",
+                text: "Mensagem...",
+                buttonsStyling: false,
+                customClass:{
+                  confirmButton: "btn btn-fill btn-success",
+                },
+                icon: "success"
+            })
+          
           }
 
       });
