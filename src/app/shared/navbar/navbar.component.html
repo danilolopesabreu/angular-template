@@ -19,8 +19,34 @@
         <div class="collapse navbar-collapse">
             <div class="" *ngIf="isMobileMenu()">
                 
-                <ul class="nav navbar-nav navbar-right">
-
+                
+                    <ul class="nav navbar-nav" *ngIf="isFormulario">
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-gavel"></i>
+                                <p class="hidden-md hidden-lg">
+                                    Actions
+                                    <b class="caret"></b>
+                                </p>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#"><i class="fa fa-level-down"></i> Dados Gerais </a></li>
+                                <li><a href="#"><i class="fa fa-level-down"></i> Dados Especóficos </a></li>
+                                <li><a href="#"><i class="fa fa-level-down"></i> Associação </a></li>
+                                <li><a href="#"><i class="fa fa-save"></i> Salvar </a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    
+                    <div class="btn-group" *ngIf="isFormulario">
+                        <button class="btn btn-default" type="button"><i class="fa fa-arrow-left"></i></button>
+                        <input class="btn btn-default" size="3" type="text" value="1/20" />
+                        <button class="btn btn-default" type="button"><i class="fa fa-arrow-right"></i></button>
+                    </div>
+                
+                    
+                    <ul class="nav navbar-nav navbar-right">
+                    
                     <!-- 
 
                         <li class="dropdown">
