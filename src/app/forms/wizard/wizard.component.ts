@@ -57,7 +57,6 @@ export class WizardComponent implements OnInit{
       // you can also use the nav-pills-[blue | azure | green | orange | red] for a different color of wizard
       // Code for the Validator
           var $validator = $('.card-wizard form').validate({
-            lang: 'pt',
             rules: {
               firstname: {
                 required: true,
