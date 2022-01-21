@@ -20,51 +20,41 @@ export interface ChildrenItems {
 }
 
 //Menu Items
-export const ROUTES: RouteInfo[] = [{
-        path: '/dashboard',
-        title: 'Dashboard',
+export const ROUTES: RouteInfo[] = [
+    {
+        path: '/pesquisar-cif',
+        title: 'Pesquisar CIF',
         type: 'link',
-        icontype: 'pe-7s-graph'
+        icontype: 'pe-7s-search'
     },{
-        path: '/components',
-        title: 'Componentes',
-        type: 'sub',
-        icontype: 'pe-7s-plugin',
-        children: [
-            {path: 'buttons', title: 'Botões', ab:'', icon: 'fa fa-mouse-pointer'},
-            {path: 'grid', title: 'Grids', ab:'GS', icon: 'fa fa-table'},
-            {path: 'panels', title: 'Accordion/Tabs', ab:'', icon: 'fa fa-list-ul'},
-            {path: 'sweet-alert', title: 'Alertas', ab:'', icon: 'fa fa-warning'},
-            {path: 'notifications', title: 'Notificações', ab:'', icon: 'fa fa-bell'},
-            {path: 'icons', title: 'Icones', ab:'I', icon: 'fa fa-fonticons'},
-            {path: 'typography', title: 'Tipografia', ab:'', icon: 'fa fa-file-text'}
-        ]
+        path: '/formulario',
+        title: 'Formulário',
+        type: 'link',
+        icontype: 'pe-7s-note2'
     },{
-        path: '/forms',
-        title: 'Formulários',
-        type: 'sub',
-        icontype: 'pe-7s-note2',
-        children: [
-            {path: 'regular', title: 'Básico', ab:'', icon: 'fa fa-wpforms'},
-            {path: 'extended', title: 'Complementos', ab:'fa fa-', icon: 'fa fa-wpforms'},
-            {path: 'validation', title: 'Validação', ab:'fa fa-', icon: 'fa fa-wpforms'},
-            {path: 'wizard', title: 'Wizard', ab:'', icon: 'fa fa-magic'}
-        ]
+        path: '/formulario-lote',
+        title: 'Formulário Lote',
+        type: 'link',
+        icontype: 'pe-7s-box2'
     },{
-        path: '/tables',
-        title: 'Tabelas',
-        type: 'sub',
-        icontype: 'pe-7s-news-paper',
-        children: [
-            {path: 'regular', title: 'Básica', ab:'', icon: 'fa fa-table'},
-            {path: 'extended', title: 'Com Ações', ab:'', icon: 'fa fa-table'},
-            {path: 'datatables.net', title: 'Datatables.net', ab:'', icon: 'fa fa-table'}
-        ]
+        path: '/cif-coreografia',
+        title: 'CIF x Coreografia',
+        type: 'link',
+        icontype: 'pe-7s-link'
+    },{
+        path: '/validar-formulario',
+        title: 'Validar Formulário',
+        type: 'link',
+        icontype: 'pe-7s-check'
+    },{
+        path: '/opcoes',
+        title: 'Opções',
+        type: 'link',
+        icontype: 'pe-7s-config'
     }
 ];
 
 @Component({
-    moduleId: module.id,
     selector: 'sidebar-cmp',
     templateUrl: 'sidebar.component.html',
 })
