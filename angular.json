@@ -21,7 +21,7 @@
               "src/favicon.ico"
             ],
             "styles": [
-              "src/assets/sass/light-bootstrap-dashboard.scss"
+              "src/assets/sass/bootstrap-dashboard.scss"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",
@@ -113,7 +113,7 @@
               "node_modules/jquery-validation/dist/jquery.validate.min.js"
             ],
             "styles": [
-              "src/assets/sass/light-bootstrap-dashboard.scss"
+              "src/assets/sass/bootstrap-dashboard.scss"
             ],
             "assets": [
               "src/assets",
