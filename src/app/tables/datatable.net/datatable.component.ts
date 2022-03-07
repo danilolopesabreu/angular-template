@@ -1,4 +1,3 @@
-// IMPORTANT: this is a plugin which requires jQuery for initialisation and data manipulation
 
 import { Component, OnInit, AfterViewInit } from '@angular/core';
 
