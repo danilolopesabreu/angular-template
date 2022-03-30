@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent }   from './app.component';
@@ -19,7 +19,7 @@ import { AppRoutes } from './app.routing';
         RouterModule.forRoot(AppRoutes,{
           useHash: true
         }),
-        HttpModule,
+        HttpClientModule,
         SidebarModule,
         NavbarModule,
         PagesnavbarModule

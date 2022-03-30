@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { FormularioRoutes } from './formulario.routing';
 import { FormsModule } from '@angular/forms';
+import { TreeModule } from '@circlon/angular-tree-component';
 
 
 
@@ -12,7 +13,8 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     RouterModule.forChild(FormularioRoutes),
-    FormsModule
+    FormsModule,
+    TreeModule
   ],
   exports:[FormularioComponent]
 })

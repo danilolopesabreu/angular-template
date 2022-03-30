@@ -100,7 +100,7 @@ export class NavbarComponent implements OnInit{
 
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
-      console.log(titlee)
+      //console.log(titlee)
 
       this.isFormulario = titlee == '#/formulario';
       /*var $nav = $('nav.navbar').first();

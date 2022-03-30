@@ -5,7 +5,20 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="header">Dados Gerais</div>
-                    <div class="content">
+                    <div class="content">  
+                        
+        
+                        <select name="servicosPrincipais" class="selectpicker"
+                            data-title="SELECIONE" 
+                            data-style="btn-default btn-block"
+                            data-menu-style="dropdown-blue" [(ngModel)]='servicoPrincipalSelecionado' (change)="carregarComplementos()">
+                            <option [ngValue]="umServicoPrincipal" 
+                                *ngFor="let umServicoPrincipal of listaDeservicosPrincipais">
+                                {{ umServicoPrincipal.noServico }}
+                            </option>
+                        </select>
+
+                        <tree-root [nodes]="nodes" [options]="options"></tree-root>
                         
                     </div>
                 </div>
