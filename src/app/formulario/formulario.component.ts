@@ -36,9 +36,9 @@ export class FormularioComponent implements OnInit {
     actionMapping: {
       mouse: {
         click: (tree, node, $event) => {
-          if (node.hasChildren){
+          if (node.hasChildren) {
             TREE_ACTIONS.TOGGLE_EXPANDED(tree, node, $event);
-          }        
+          } 
           let treeNodeSelecionado:TreeNode = node.data;
           this.montarPropriedadesDoParametroCifServicoSelecionado(treeNodeSelecionado.cifComplementoDto.cifServicoVinculado);
         }
@@ -55,19 +55,14 @@ export class FormularioComponent implements OnInit {
   carregarServicosPrincipais() {
     this.cifServicoService.getCifServicoPrinciais()
       .subscribe(cifServicos => {
-        //this.listaDeservicosPrincipais = JSON.parse(JSON.stringify(cifServicos));
-        console.log(cifServicos);
         this.listaDeservicosPrincipais = [...cifServicos];
         this.construirDropDown();
       });
   }
 
   carregarComplementos(){ 
-    console.log(this.servicoPrincipalSelecionado);
     this.cifServicoService.getComplementosCifServico(this.servicoPrincipalSelecionado.id).subscribe(cifServico => {
-      //this.servicoPrincipalEComplementos = JSON.parse(JSON.stringify(cifServico));
       this.servicoPrincipalEComplementos = cifServico;
-      console.log(cifServico);
       
       let rootTreeNode = new TreeNode();
       rootTreeNode.cifComplementoDto = CifComplementoDto.of(cifServico);
