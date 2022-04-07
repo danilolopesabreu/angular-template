@@ -68,7 +68,7 @@ export class FormularioComponent implements OnInit {
       rootTreeNode.cifComplementoDto = CifComplementoDto.of(cifServico);
       rootTreeNode.children = [];
       this.montarArvoreCifServicoComplementos(rootTreeNode.cifComplementoDto, rootTreeNode.children);
-      this.nodes = [ rootTreeNode ];
+      this.nodes = [ this.ordenarArvore(rootTreeNode) ];
     });
   }
 
@@ -81,6 +81,23 @@ export class FormularioComponent implements OnInit {
       this.montarArvoreCifServicoComplementos(umComplemento, treeNode.children);
     });
     return;
+  }
+
+  // ordena a arvore de acordo com o CifCOmplementoDto.cifServicoVinculado.noServico 
+  ordenarArvore(node: TreeNode): TreeNode { 
+    node.children.sort((a, b) => {
+      if (a.cifComplementoDto.cifServicoVinculado.noServico < b.cifComplementoDto.cifServicoVinculado.noServico) {
+        return -1;
+      }
+      if (a.cifComplementoDto.cifServicoVinculado.noServico > b.cifComplementoDto.cifServicoVinculado.noServico) {
+        return 1;
+      }
+      return 0;
+    });
+    node.children.forEach(child => {
+      this.ordenarArvore(child);
+    });
+    return node;
   }
 
   selecionarElementoArvore(){
