@@ -22,7 +22,8 @@
             ],
             "styles": [
               "src/assets/sass/bootstrap-dashboard.scss",
-              "node_modules/@circlon/angular-tree-component/css/angular-tree-component.css"
+              "node_modules/@circlon/angular-tree-component/css/angular-tree-component.css",
+              "src/styles.css"
             ],
             "scripts": [
               "node_modules/jquery/dist/jquery.js",

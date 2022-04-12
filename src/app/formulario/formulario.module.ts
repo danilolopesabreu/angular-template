@@ -5,6 +5,8 @@ import { RouterModule } from '@angular/router';
 import { FormularioRoutes } from './formulario.routing';
 import { FormsModule } from '@angular/forms';
 import { TreeModule } from '@circlon/angular-tree-component';
+import { DropDownTreeModule } from '@syncfusion/ej2-angular-dropdowns';
+
 
 
 
@@ -14,7 +16,8 @@ import { TreeModule } from '@circlon/angular-tree-component';
     CommonModule,
     RouterModule.forChild(FormularioRoutes),
     FormsModule,
-    TreeModule
+    TreeModule,
+    DropDownTreeModule 
   ],
   exports:[FormularioComponent]
 })

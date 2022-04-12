@@ -9,6 +9,7 @@ declare var $:any;
 export class TreeNode {
   cifComplementoDto: CifComplementoDto;
   children:TreeNode[];
+  expanded: false;
 
   get name():string {
     return this.cifComplementoDto.cifServicoVinculado.noServico;
@@ -46,6 +47,12 @@ export class FormularioComponent implements OnInit {
     }
   };
 
+  // defined the array of data
+  public data: { [key: string]: Object }[] = this.nodes;
+
+  //binding data source through fields property
+  public fields:Object;
+
   constructor(private cifServicoService:CifServicoService) { }
 
   montarPropriedadesDoParametroCifServicoSelecionado(cifServicoDto:CifServicoDto){
@@ -69,6 +76,10 @@ export class FormularioComponent implements OnInit {
       rootTreeNode.children = [];
       this.montarArvoreCifServicoComplementos(rootTreeNode.cifComplementoDto, rootTreeNode.children);
       this.nodes = [ this.ordenarArvore(rootTreeNode) ];
+      
+      this.nodes[0].expanded = true;
+
+      this.fields = { dataSource: this.nodes, value: 'cifComplementoDto.cifServicoVinculado.id.nuSequencialCifServico', text: 'cifComplementoDto.cifServicoVinculado.noServico', child: 'children' };
     });
   }
 
@@ -80,7 +91,6 @@ export class FormularioComponent implements OnInit {
       children.push(treeNode);
       this.montarArvoreCifServicoComplementos(umComplemento, treeNode.children);
     });
-    return;
   }
 
   // ordena a arvore de acordo com o CifCOmplementoDto.cifServicoVinculado.noServico 
@@ -115,5 +125,8 @@ export class FormularioComponent implements OnInit {
         }, 1000);
     }
   }
+
+
+    
 
 }
