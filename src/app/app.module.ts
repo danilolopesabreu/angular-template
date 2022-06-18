@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; 
 import { RouterModule } from '@angular/router';
-import { HttpModule } from '@angular/http';
-import { APP_BASE_HREF } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent }   from './app.component';
 
 import { SidebarModule } from './sidebar/sidebar.module';
 import { NavbarModule} from './shared/navbar/navbar.module';
+import { PagesnavbarModule} from './shared/pagesnavbar/pagesnavbar.module';
 import { AdminLayoutComponent } from './layouts/admin/admin-layout.component';
 import { AppRoutes } from './app.routing';
 
@@ -19,9 +19,10 @@ import { AppRoutes } from './app.routing';
         RouterModule.forRoot(AppRoutes,{
           useHash: true
         }),
-        HttpModule,
+        HttpClientModule,
         SidebarModule,
         NavbarModule,
+        PagesnavbarModule
     ],
     declarations: [
         AppComponent,

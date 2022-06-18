@@ -1,0 +1,53 @@
+<div class="main-content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">Dados Gerais</div>
+                    <div class="content">  
+                        
+        
+                        <select name="servicosPrincipais" class="selectpicker"
+                            data-title="SELECIONE" 
+                            data-style="btn-default btn-block"
+                            data-menu-style="dropdown-blue" [(ngModel)]='servicoPrincipalSelecionado' (change)="carregarComplementos()">
+                            <option [ngValue]="umServicoPrincipal" 
+                                *ngFor="let umServicoPrincipal of listaDeservicosPrincipais">
+                                {{ umServicoPrincipal.noServico }}
+                            </option>
+                        </select>
+
+                        <div class="tree">
+                            <tree-root [nodes]="nodes" [options]="options"></tree-root>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">Dados Específicos</div>
+                    <div class="content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="header">Associação</div>
+                    <div class="content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

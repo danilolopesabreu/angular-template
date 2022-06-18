@@ -23,6 +23,8 @@ export class NavbarComponent implements OnInit{
     private toggleButton;
     private sidebarVisible: boolean;
 
+    isFormulario:boolean;
+
     @ViewChild("navbar-cmp") button;
 
     constructor(location:Location, private renderer : Renderer2, private element : ElementRef) {
@@ -98,6 +100,18 @@ export class NavbarComponent implements OnInit{
 
     getTitle(){
       var titlee = this.location.prepareExternalUrl(this.location.path());
+      //console.log(titlee)
+
+      this.isFormulario = titlee == '#/formulario';
+      /*var $nav = $('nav.navbar').first();
+
+        if(this.isFormulario){
+             $nav.prependTo('.wrapper').addClass('navbar-fixed');           
+        }else{
+            if($nav.hasClass('navbar-fixed'))
+                $nav.removeClass('navbar-fixed').prependTo('.main-panel');
+        }*/
+
       if(titlee.charAt(0) === '#'){
           titlee = titlee.slice( 1 );
       }
@@ -115,7 +129,7 @@ export class NavbarComponent implements OnInit{
                 }
             }
         }
-        return 'Dashboard';
+        return '';
     }
 
     getPath(){
