@@ -76,11 +76,11 @@ export class FormularioComponent implements OnInit {
       rootTreeNode.children = [];
       this.montarArvoreCifServicoComplementos(rootTreeNode.cifComplementoDto, rootTreeNode.children);
       this.nodes = [ this.ordenarArvore(rootTreeNode) ];
-      
-      this.nodes[0].expanded = true;
-
-      this.fields = { dataSource: this.nodes, value: 'cifComplementoDto.cifServicoVinculado.id.nuSequencialCifServico', text: 'cifComplementoDto.cifServicoVinculado.noServico', child: 'children' };
     });
+  }
+
+  asdfg($event){
+    console.log($event);
   }
 
   montarArvoreCifServicoComplementos(complemento: CifComplementoDto, children: TreeNode[]) {
